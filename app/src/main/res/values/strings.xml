@@ -1,0 +1,9 @@
+<resources>
+
+    <!-- Main Menu -->
+    <string name="app_name">Music Player</string>
+    <string name="song_button">Go to Song Player</string>
+
+    <!-- Song Player -->
+    <string name="song_player_play_button">Play</string>
+</resources>
