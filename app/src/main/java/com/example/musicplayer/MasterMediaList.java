@@ -5,6 +5,7 @@ import android.net.Uri;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.stream.Collectors;
 
 public class MasterMediaList {
@@ -12,6 +13,8 @@ public class MasterMediaList {
     private static MasterMediaList masterMediaList;
 
     private ArrayList<String> mediaData;
+
+    private HashMap<String, HashMap<String, HashMap<String, String>>> masterList;
 
     private MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
 
@@ -41,10 +44,16 @@ public class MasterMediaList {
     }
 
     private String getMediaMetadata(String mediaFileString, int metadataKey) {
-        Uri songUri = Uri.fromFile(new File(mediaFileString));
         mediaMetadataRetriever.setDataSource(mediaFileString);
-        //mediaMetadataRetriever.setDataSource(MasterMediaList.this, songUri);
         return mediaMetadataRetriever.extractMetadata(metadataKey);
+    }
+
+    public HashMap<String, HashMap<String, HashMap<String, String>>> getMasterList() {
+        return masterList;
+    }
+
+    public void setMasterList(HashMap<String, HashMap<String, HashMap<String, String>>> masterList) {
+        this.masterList = masterList;
     }
 
 }

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.example.musicplayer.builder.MasterMediaListBuilder;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,6 +23,7 @@ public class MainMenuActivity extends AppCompatActivity {
     private static final String MEDIA_DATA_INTENT_NAME = "media data";
 
     private MasterMediaList masterMediaList;
+    private MasterMediaListBuilder masterMediaListBuilder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,8 @@ public class MainMenuActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 ArrayList<String> mediaData = data.getStringArrayListExtra(MEDIA_DATA_INTENT_NAME);
                 masterMediaList.setMediaData(mediaData);
+                masterMediaListBuilder = new MasterMediaListBuilder(mediaData);
+                masterMediaList.setMasterList(masterMediaListBuilder.build());
             }
         }
     }
