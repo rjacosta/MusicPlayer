@@ -6,4 +6,5 @@
 
     <!-- Song Player -->
     <string name="song_player_play_button">Play</string>
+    <string name="song_player_pause_button">Pause</string>
 </resources>

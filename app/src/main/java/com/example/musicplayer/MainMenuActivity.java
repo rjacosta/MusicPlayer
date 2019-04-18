@@ -20,11 +20,14 @@ public class MainMenuActivity extends AppCompatActivity {
 
     private static final String MEDIA_DATA_INTENT_NAME = "media data";
 
+    private MasterMediaList masterMediaList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent mediaRetrieverIntent = new Intent(this, MediaRetrieverActivity.class);
+        masterMediaList = MasterMediaList.getInstance();
         startActivityForResult(mediaRetrieverIntent, REQUEST_CODE);
     }
 
@@ -39,13 +42,7 @@ public class MainMenuActivity extends AppCompatActivity {
         if (requestCode == REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 ArrayList<String> mediaData = data.getStringArrayListExtra(MEDIA_DATA_INTENT_NAME);
-                for (String song : mediaData) {
-                    Uri songUri = Uri.fromFile(new File(song));
-                    MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                    mediaMetadataRetriever.setDataSource(MainMenuActivity.this, songUri);
-                    String title = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
-                    Log.d("TITLE", title);
-                }
+                masterMediaList.setMediaData(mediaData);
             }
         }
     }
