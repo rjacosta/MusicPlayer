@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".SongPlayerActivity" android:parentActivityName=".MainMenuActivity" />
         <activity android:name=".MediaRetrieverActivity" android:parentActivityName=".MainMenuActivity" />
+        <activity android:name=".MediaListActivity" android:parentActivityName=".MainMenuActivity" />
     </application>
 
 </manifest>

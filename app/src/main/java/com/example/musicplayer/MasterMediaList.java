@@ -1,9 +1,7 @@
 package com.example.musicplayer;
 
 import android.media.MediaMetadataRetriever;
-import android.net.Uri;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.stream.Collectors;
@@ -13,6 +11,8 @@ public class MasterMediaList {
     private static MasterMediaList masterMediaList;
 
     private ArrayList<String> mediaData;
+
+    private int mediaDataSize;
 
     private HashMap<String, HashMap<String, HashMap<String, String>>> masterList;
 
@@ -35,6 +35,11 @@ public class MasterMediaList {
 
     public void setMediaData(ArrayList<String> mediaData) {
         this.mediaData = mediaData;
+        this.mediaDataSize = mediaData.size();
+    }
+
+    public int getMediaDataSize() {
+        return mediaDataSize;
     }
 
     public ArrayList<String> getAllSongTitles() {

@@ -1,18 +1,14 @@
 package com.example.musicplayer;
 
 import android.content.Intent;
-import android.media.MediaMetadataRetriever;
-import android.net.Uri;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.example.musicplayer.builder.MasterMediaListBuilder;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -21,6 +17,8 @@ public class MainMenuActivity extends AppCompatActivity {
     private final int REQUEST_CODE = 2;
 
     private static final String MEDIA_DATA_INTENT_NAME = "media data";
+
+    private static final String LIST_TYPE = "ListType";
 
     private MasterMediaList masterMediaList;
     private MasterMediaListBuilder masterMediaListBuilder;
@@ -37,6 +35,12 @@ public class MainMenuActivity extends AppCompatActivity {
     public void goToSongPlayer(View view) {
         Intent songPlayerIntent = new Intent(this, SongPlayerActivity.class);
         startActivity(songPlayerIntent);
+    }
+
+    public void goToAllSongs(View view) {
+        Intent songListIntent = new Intent(this, MediaListActivity.class);
+        songListIntent.putExtra(LIST_TYPE, MediaListActivity.MediaListType.Song);
+        startActivity(songListIntent);
     }
 
     @Override

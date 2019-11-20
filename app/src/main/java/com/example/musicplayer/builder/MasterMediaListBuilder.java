@@ -1,9 +1,6 @@
 package com.example.musicplayer.builder;
 
 import android.media.MediaMetadataRetriever;
-import android.util.Pair;
-
-import com.example.musicplayer.MasterMediaList;
 
 import java.util.ArrayList;
 import java.util.HashMap;
